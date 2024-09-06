@@ -1,0 +1,68 @@
+<meta charset="UTF-8">
+<html>
+<title>Admin</title>
+<?php
+	
+	foreach($css as $_css){
+		echo "<link href='".str_replace('[home]',base_url(),$_css)."' type='text/css' rel='stylesheet'>";
+	}
+	
+	foreach($javascript as $_js){
+		echo "<script src='".str_replace('[home]',base_url(),$_js)."'></script>";
+	}
+?>
+<style type="text/css" rel="stylesheet">
+	body{
+		background:url('<?php echo base_url();?>res/bg_common.jpg');
+	}
+	.side_list{
+		display:none;
+	}
+	button.side_nav{
+		background:none;
+		border:none;
+		color:#286090;
+		margin-left:7px;
+	}
+</style> 
+</head>
+<body>
+<div class="col-md-12 col-lg-12 page-header">
+	<h1>Halaman Admin</h1>
+</div>
+<div class="col-md-2 col-lg-2" style="height:700px;">
+	<nav class="navbar navbar-inverse" role="navigation">
+		<ul class="nav nav-stacked">
+			<?php
+				foreach($links as $l_key => $_links){
+					if(is_array($_links)){
+						echo "<li><a href='#' class='side_nav'>".$l_key."<span class='caret'></span></a>
+							<ul class='list side_list list-group nav'>";
+							foreach($_links as $sub_n => $sub_l){
+								echo "<li>".anchor($sub_l,$sub_n)."</li>";
+							}
+						echo "</ul></li>";
+					}else{
+						echo "<li>".anchor($_links, $l_key)."</li>";
+					}
+				}
+			?>
+		</ul>
+	</nav>	
+</div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	//$('ul.side_list').hide();
+	$('a.side_nav').click(function(event){
+		event.preventDefault();
+		$(this).next().slideToggle(500);
+	});
+	
+	$('table.table').dataTable();
+	
+	$('a.btn-danger').click(function(){
+		return confirm('Apakah Anda Yakin ?');
+	});
+});
+</script>

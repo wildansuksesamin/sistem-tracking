@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<title>Login Form</title>
+<?php
+	foreach($css as $_css){
+		echo "<link href='".str_replace('[home]',base_url(),$_css)."' type='text/css' rel='stylesheet'>" ;
+	}
+?>
+</head>
+<body>
+<div class="wrap container">
+<div class="row">
+	<div class="col-md-12">
+		<div id="form">
+			<table>
+				<tr>
+					<td><h1 align="center"><b>LOGIN FORM</b></h1></td>
+				</tr>
+				<tr>
+					<td><p align="center"><?php echo $psn; ?></p></td>
+				</tr>
+				<?php 
+					echo form_open(
+						'Login',array(
+							'method'=>'POST',
+							'class'=>'form',
+							'role'=>'form'
+						)
+					);
+				?>
+			
+				<tr>
+				<td class='input-group'>
+				<span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>
+				<?php	
+					echo form_input(
+						array(
+							'name'=>'username',
+							'id'=>'username',
+							'type'=>'text',
+							'class'=>'form-control login_text',
+							'placeholder'=>'Username'
+						)
+					);
+				?>
+				</td></tr>
+				<tr><td class='input-group'>
+				<span class='input-group-addon'><i class='glyphicon glyphicon-question-sign'></i></span>
+				<?php
+					echo form_input(
+						array(
+							'name'=>'password',
+							'id'=>'password',
+							'type'=>'password',
+							'maxlength' =>'20',
+							'class'=>'form-control login_text',
+							'placeholder'=>'Password'
+						)
+					);
+				?>
+				</br>
+				</td></tr>
+				<tr><td>
+					<div class="btn-group col-md-12" style='padding: 0px 26px;'>
+						<?php 
+							echo form_submit(
+								'submit',
+								'Login',
+								array(
+									'class'=> 'btn btn-success btn-block'
+								)
+							);
+							
+						?>
+					</div>
+				</td></tr>
+				<?php echo form_close();?>
+			
+				<tr><td class='btn-group'>
+						<?php
+							foreach($links as $key=>$_links){
+								echo anchor($_links,$key,array(
+									'class' => 'btn btn-primary',
+									'confirm' => true
+								));
+							}
+						?>
+				</td></tr>
+			</table>
+		</div>
+	</div>
+</div>	
+</div>
+<?php
+	foreach($javascript as $js){
+		echo "<script src='".str_replace('[home]',base_url(),$js)."'></script>";
+	}
+?>
+</body>
+</html>

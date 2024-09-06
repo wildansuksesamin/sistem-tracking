@@ -1,0 +1,83 @@
+<div class="col-md-10">
+	<h2>Tambah User</h2>
+	<br><br>
+	<div class="error"><?php echo validation_errors();?></div>
+	<?php echo form_open('Auser/tambahUser',array('method'=>'POST','role'=>'form','class'=>'form-horizontal'));?>
+	<div class="separator">
+		<p>Informasi Login User</p>
+		<div class="form-group">
+			<?php echo form_label('Username','user',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'user','name'=>'user','value'=>set_value('user')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('Password','password1',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'password1','name'=>'password1','value'=>set_value('password1')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('Ulangi Password','password2',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'password2','name'=>'password2','value'=>set_value('password2')));?>
+			</div>
+		</div>
+	</div>
+	<div class="separator">
+		<p>Informasi Umun User</p>
+		<div class="form-group">
+			<?php echo form_label('Nama Depan','nama_depan',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'nama_depan','name'=>'nama_depan','value'=>set_value('nama_depan')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('Nama Belakang','nama_belakang',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'nama_belakang','name'=>'nama_belakang','value'=>set_value('nama_belakang')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('Email','email',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'email','name'=>'email','value'=>set_value('email')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('No Telepon','tlp',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'tlp','name'=>'tlp','value'=>set_value('tlp')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('Alamat','alamat',array('class'=>'col-md-2'));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>'text','class'=>'form-control','id'=>'alamat','name'=>'alamat','value'=>set_value('alamat')));?>
+			</div>
+		</div>
+	</div>
+	<div class="separator">
+		<p>Pilih Client</p>
+		<?php
+			echo form_label('Pilih Client','client',array('class'=>'col-md-2 control-label'));
+			$option=array();
+			for($f=0;$f<count($client);$f++){
+				$option[$client[$f]['id_client']]=$client[$f]['nama_client'];
+			}
+			echo "<div class='col-md-5'>";
+			echo form_dropdown('client',$option,$option[$client[0]['id_client']],array('class'=>'form-control'));
+		?>
+		</div>
+		<br><br>
+		<div class="col-md-10">
+			<?php 
+				echo form_submit('submit','SUBMIT',array('class'=>'btn btn-primary'));
+				echo form_close();
+				echo anchor('Client/registrasi','Buat Client Baru',array('class'=>'btn btn-default'));
+			?>
+		</div>
+	</div>
+</div>
+</body>
+</html>

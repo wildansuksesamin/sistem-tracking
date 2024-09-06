@@ -1,0 +1,57 @@
+<?php $user=$this->session->user ;?>
+
+		<div id="report_container" class="col-md-10 col-lg-10" style="border-left:1px solid #e1e1e1;">
+			<div id="query_list" class="col-md-12 col-lg-12">
+				<ul class="list-inline">
+					<?php
+						foreach($for_checkbox as $c_key => $c_val){
+							echo "<li><label>";
+							
+							echo form_checkbox(array(
+									'type' => 'checkbox',
+									'value' => $c_key,
+									'name' => $c_val,
+									'class' => 'fields_e'
+								)
+							);
+							echo $c_val."</label></li>";
+						}
+					?>
+					<li><label><input id="check_all" type="checkbox">Check All</label></li>
+				</ul>
+			</div>
+			<div id="date_picker" class="col-md-12 col-lg-12">
+				<label for="tanggal1"> Pilih report dari tanggal </label>
+				<input type="text" name="tanggal1" id="tanggal1">
+				<label for="tanggal2"> sampai tanggal </label>
+				<input type="text" name="tanggal2" id="tanggal2">
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary" id="view_report">Tampilkan Report</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+						Print</span>&nbsp;<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><?php echo anchor('Report/createPDF','Report PDF',array('target'=>'_blank'));?></li>
+						<li><?php echo anchor('Report/createExcel','Report Excel',array('target'=>'_blank'));?></li>
+					</ul>
+				</div>
+			</div>
+			<div id="report_view" class="col-md-12 col-lg-12">
+			</div>
+			<div id="report_operation">				
+			</div>
+			
+		</div>
+	<script type="text/javascript">
+	
+		var user="<?php echo $user ;?>";
+		var base_url="<?php echo site_url();?>";
+
+	</script>
+	
+	<?php
+		foreach($javascript as $js){
+			echo "<script src='".str_replace('[home]',base_url(),$js)."'></script>";
+		}
+	?>
+</div>

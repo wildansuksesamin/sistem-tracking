@@ -1,0 +1,23 @@
+<div class="col-sm-10 col-md-10 col-lg-10">
+	<?php
+		if(isset($heading)){
+			echo heading($heading,1);
+		}
+		if(isset($pesan)){
+			echo heading($pesan,3);
+		}
+		echo $this->table->generate();
+		
+		if(isset($link) && is_array($link)){
+			foreach($link as $k_link => $v_link){
+				$style = array(
+					'class' => 'btn btn-primary',
+					'onClick' => 'prompt("go to link ?")'
+				);
+				echo "<p>".anchor($v_link, $k_link,$style)."</p>";
+			}
+		}
+	?>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<meta charset="UTF-8">
+<html>
+<head>
+<title>Admin Login</title>
+<link href="<?php echo base_url(); ?>js/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>css/admin_login.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap container">
+<div class='row'>
+<div class='col-md-12'>
+	<div class="form">
+		<?php 
+			echo form_open(
+				'Admin',
+				array( 
+					'method'=>'POST',
+					'class'=>'form',
+					'role' => 'form'
+				)
+			);
+		?>
+		<table>
+			<tr>
+				<td><h1>Login Admin</h1></td>
+			</tr>
+			<tr>
+				<td>
+					<?php
+						echo form_input(
+							array(
+								'name'=>'user',
+								'id'=>'user',
+								'type'=>'text',
+								'class'=>'form-control', 
+								'placeholder'=> 'Login Admin'
+							)
+						);
+					?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php
+						echo form_password(
+							array(
+								'name'=>'password',
+								'id'=>'password', 
+								'class'=>'form-control' ,
+								'placeholder' => 'Password Admin'
+							)
+						);
+					?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<?php
+					echo form_submit(
+						'submit',
+						'Login',
+						array(
+							'class'=> 'btn btn-success btn-block', 
+							'style' => 'margin-top:10px;'
+						)
+					);
+					echo form_close();
+				?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php 
+						echo anchor(
+							'Login/index',
+							'Halaman Login User',
+							array(
+								'class' => 'btn btn-primary btn-block'
+							)
+						); 
+					?>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class='mesage'>
+		<p align='center'><?php echo $pesan ; ?></p>
+	</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

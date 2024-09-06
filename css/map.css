@@ -1,0 +1,124 @@
+body{
+	background:url('../res/bg_common.jpg');
+}
+div#list_view{
+	background-color:#1E1E1E;
+	color:#D4D4FF;
+	width:100%;
+	height:auto;
+	max-height:450px;
+	padding:5px;
+	overflow-x:scroll;
+}
+
+div#list_view button{
+	background:transparent;
+	border:none;
+	text-align:left;
+}
+
+#item_list{
+	height:auto;
+	font-family:Arial,Verdana;
+	font-size:14px;
+}
+#is_checked{
+	background-color:#0808DC;
+	color:#FFFFFF;
+}
+div#operasi{
+	display:block;
+	width:100%;
+	height:60px;
+	padding:2px;
+}
+#show_on_map{
+	height:30px;
+}
+#map_container{
+	width:100%;
+	height:600px;
+	margin:auto;
+	clear:both;
+}
+.labels {
+	width:80px;
+	border:1px solid black;
+	border-radius:3px;
+	box-shadow:5px 5px 5px #A5A5A5;
+	font-family:Arial,Verdana;
+	font-size:12px;padding:3px;
+}
+#info {
+	width:300px;
+	height:140px;
+	font-family:Arial,Verdana;font-size:12px;
+	padding:5px;
+	opacity:0.80;
+}
+.pointer{
+	background-color:transparent;
+	border:none;
+	margin-left:90px;
+}
+.item_list td{
+	padding:auto;
+}
+.cb_list{
+	margin-left:10px;
+	margin-right:10px;
+}
+#print_map{
+	border:none;
+}
+div #map_control_item{
+	height:50px;
+	width:100%;
+}
+#map_control{
+	float:right;
+	height:auto;
+}
+
+ul #list{
+	list-style-type:none;
+	margin:auto;
+}
+#list li{
+	display:inline-block;
+	padding:8px;
+}
+#list li button, #list li input, #list li span{
+	float:left;
+	margin-left:10px;
+}
+
+#search_item table tr td, div#operasi table tr td{
+	padding:5px;
+	width:100%;
+	height:35px;
+}
+#search_item table tr td button, #search_item table tr td input{
+	height:30px;
+	margin:auto;
+}
+button{
+	margin:5px;
+}
+.form{
+	background:rgba(65,65,65,0.5);
+	padding:10px;
+	height:auto;
+	color:#fff;
+	border-radius:7px;
+}
+#header_wrap{
+	background:#fff;
+}
+table.table_form{
+	color:#fff;
+}
+table.table_form tr td{
+	padding:6px;
+}
+/*----------header part----------------*/

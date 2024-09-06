@@ -1,0 +1,24 @@
+body{
+	background:url('../res/background.jpg');
+}
+.wrap{margin:auto;}
+#form{
+	margin:auto;
+	padding:20px;
+	width:450px;
+	margin-top:150px;
+	border-radius:5px;
+	border:1px solid black ;
+	background:rgba(60,60,60,0.5);
+	color:#fff;
+}
+.login_text{
+}
+table{
+	margin:auto ;
+}
+table tr td{
+	padding:5px;
+	margin:auto;
+}
+.message{height:20px;}

@@ -1,0 +1,48 @@
+
+<meta charset="UTF-8">
+<html>
+<head>
+<title>MAP</title>
+<?php
+	foreach($css as $_css){
+		echo "<link href='".str_replace('[home]',base_url(),$_css)."' type='text/css' rel='stylesheet'>"; 
+	}
+	
+	foreach($javascript as $_js){
+		echo "<script src='".str_replace('[home]',base_url(),$_js)."'></script>";
+	}
+?>
+</head>
+<body>
+
+<div id="header_wrap" class="container">
+	<div class="row">
+		<div class="col-md-10 page-header">
+			<h1>Example Map <small>aplikasi sederhana untuk melakukan tracking pada kendaraan</small></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div id="links" class="col-lg-10">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<ul class=" nav navbar-nav">
+					<?php
+						foreach($links as $key=>$val){
+							echo '<li>'.anchor($val,$key).'</li>';
+						}
+					?>
+				</ul>
+			</nav>
+		</div>
+		<div class='col-md-2 col-lg2'>
+			<?php
+				$user = $this->session->user ;
+				echo '<small> Hallo User '.$user.'</small><br>';
+				echo anchor('User','View Profile').' / '.anchor('User/logOut','Log Out');
+			?>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+</script>
+<div class='container'>
+<div class='row'>

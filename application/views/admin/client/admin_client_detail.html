@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<table>
+				<tr><td>No Client &nbsp;</td><td> &nbsp;:&nbsp;</td><td><?php echo $client[0]['id_client'];?></td></tr>
+				<tr><td>Nama Client &nbsp; </td><td> &nbsp;:&nbsp; </td><td><?php echo $client[0]['nama_client'];?></td></tr>
+				<tr><td>Tanggal &nbsp;</td><td>&nbsp;:&nbsp; </td><td><?php echo $client[0]['tanggal'];?></td></tr>
+			</table>
+		</div>
+		<div class="col-md-10">
+			<h3>Daftar USer</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr><th>Nama Depan</th><th>Nama Belakang</th><th>Email</th><th>Telepon</th></tr>
+				</thead>
+				<tbody>
+					<?php
+						for($b=0;$b<count($client_user);$b++){
+							echo "<tr><td>".$client_user[$b]['nama_depan']."</td>
+							<td>".$client_user[$b]['nama_belakang']."</td>
+							<td>".$client_user[$b]['email']."</td>
+							<td>".$client_user[$b]['telepon']."</td></tr>";
+						}
+					?>
+				</tbody>
+			</table>
+			<?php echo anchor('Auser/addUser','Tambah User');?>
+		</div>
+		<div class="col-md-10">
+			<h3>Daftar Perusahaan</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr><th>ID Perusahaan</th><th>Nama Perusahaan</th><th>Daftar Kendaraan</th></tr>
+				</thead>
+				<tbody>
+					<?php
+						for($d=0;$d<count($client_perusahaan);$d++){
+							echo "<tr><td>".$client_perusahaan[$d]['id_perusahaan']."</td><td>".$client_perusahaan[$d]['nama_perusahaan']."</td>
+							<td><a href='".base_url()."index.php/Admin/detailSubPerusahaan/".$client_perusahaan[$d]['id_perusahaan']."'>Daftar Kendaraan</a></td></tr>";
+						}
+					?>
+				</tbody>
+			</table>
+			<?php echo anchor('Perusahaan/addPerusahaan','Tambah Perushaan');?>
+		</div>
+	</div>
+</div>

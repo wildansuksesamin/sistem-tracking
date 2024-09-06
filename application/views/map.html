@@ -1,0 +1,33 @@
+
+		<div id="item_list" class="col-md-2 col-md-2 col-lg-2" style="border-right:1px solid #E1E1E1;">
+		</div>
+		<div id="map_control" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+			<div id="map_control_item" style="padding:5px;" class='button-group'>
+				<button id='print_map' 	class="btn btn-primary"><span class='glyphicon glyphicon-print'></span></button>
+				<button id='zoom_plus' 	class="btn btn-primary"><span class='glyphicon glyphicon-plus'></span></button>
+				<button id='zoom_minus'	class="btn btn-primary"><span class='glyphicon glyphicon-minus'></span></button>
+				<button id='full_map'  	class="btn btn-default"><span class='glyphicon glyphicon-resize-full'></span></button>
+				<button id='normal_map' class="btn btn-default"><span class='glyphicon glyphicon-resize-small'></span></button>
+			</div>
+			<div id="map_container">
+			</div>
+			<div id="info-alamat">
+			</div>
+		</div>
+	</div>
+</div>	
+	<script type="text/javascript">
+		
+		var base_url="<?php echo site_url(); ?>";
+		var base = "<?php echo base_url();?>";
+		var lat=-6.155001;
+		var lgt=106.872021;
+	</script>
+	<?php
+		foreach($javascript as $js){
+			echo "<script src='".str_replace('[home]',base_url(),$js)."'></script>";
+		}
+	?>
+</body>
+</html>
+

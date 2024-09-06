@@ -1,0 +1,119 @@
+<div class="col-md-10">
+	<h2>Tambah Perusahaan</h2>
+	<div class="error">
+		<?php echo validation_errors();?>
+	</div>
+	<?php 
+		echo form_open(
+			'Perusahaan/tambahPerusahaan',
+			array(
+				'method'=>'POST',
+				'role'=>'form',
+				'class'=>'form-horizontal'
+			)
+		);
+	?>
+	<div class="separator">
+	<p>Informasi Perusahaan</p>
+		<div class="form-group">
+			<?php 
+				echo form_label(
+					'ID Perusahaan',
+					'id_perusahaan',
+					array(
+						'class'=>'col-md-2 control-label'
+					)
+				);
+			?>
+			<div class="col-md-5">
+				<?php 
+					echo form_input(
+						array(
+							'type'=>'text',
+							'class'=>'form-control',
+							'id'=>'id_perusahaan',
+							'name'=>'id_perusahaan',
+							'value'=>set_value('id_perusahaan')
+						)
+					);
+				?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php 
+				echo form_label(
+					'Nama Perusahaan',
+					'nama_perusahaan',
+					array(
+						'class'=>'col-md-2 control-label'
+					)
+				);
+			?>
+			<div class="col-md-5">
+				<?php 
+					echo form_input(
+						array(
+							'type'=>'text',
+							'class'=>'form-control',
+							'id'=>'nama_perusahaan',
+							'name'=>'nama_perusahaan',
+							'value'=>set_value('nama_perusahaan')
+						)
+					);
+				?>
+			</div>
+		</div>
+	</div>
+	<div class="separator">
+		<p>Pilih Client</p>
+		<?php 
+			echo form_label(
+				'Nama Client',
+				'client',
+				array(
+					'class'=>'col-md-2 control-label'
+				)
+			);
+		?>
+		<div class="col-md-5">
+			<?php
+				$option=array();
+				for($f=0;$f<count($client);$f++){
+					$option[$client[$f]['id_client']] = $client[$f]['nama_client'];
+				}
+				
+				echo form_dropdown(
+					'client',
+					$option,
+					$option[$client[0]['id_client']],
+					array(
+						'class'=>'form-control'
+					)
+				);
+			?>
+		</div>
+		<div class="col-md-10">
+			<?php 
+				echo "<br><br>";
+				echo form_submit(
+					'submit',
+					'SUMBIT',
+					array(
+						'class'=>'btn btn-primary'
+					)
+				);
+				echo form_close();
+				echo anchor(
+					'Client/Registrasi',
+					'Buat Client Baru',
+					array(
+						'class'=>'btn btn-default'
+					)
+				);
+			?>
+			<br><br>
+			<p><?php echo $pesan ?></p>
+		</div>
+	</div>
+</body>
+</html>

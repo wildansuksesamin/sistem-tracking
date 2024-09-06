@@ -1,0 +1,17 @@
+div.error{
+	background-color:#FFAA55;
+	color:#730303;
+	display:block;
+}
+.side_list{
+	display:none; position:relative;
+}
+table.table_form tr td{
+	padding:5px;
+	color:#fff;
+}
+div.form{
+	background:rgba(30,30,30,0.5);
+	border-radius:5px;
+	padding:5px;
+}

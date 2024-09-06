@@ -1,0 +1,21 @@
+<div class="col-sm-10 col-md-10 col-lg-10">
+	<h1>Daftar Kendaraan</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr><th>No Kendaraan</th><th>Tipe Kendaraan</th><th>Nama Perusahaan</th><th>Operasi</th></tr>
+		<thead>
+		<tbody>
+			<?php
+				for($c=0;$c<count($detail_perusahaan);$c++){
+					echo "<tr><td>".$detail_perusahaan[$c]['no_kendaraan']."</td>
+						<td>".$detail_perusahaan[$c]['tipe_kendaraan']."</td>
+						<td>".$detail_perusahaan[$c]['nama_perusahaan']."</td>
+						<td>".anchor('Kendaraan/hapusKendaraan/'.$detail_perusahaan[$c]['no_kendaraan'],'Hapus')."</td></tr>";
+				}
+			?>
+		</tbody>
+	</table>
+	<p><?php echo anchor('Kendaraaan/tambahKendaraan','Tambah Kendaraan');?></p>
+</div>
+</body>
+</html>

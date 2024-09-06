@@ -1,0 +1,38 @@
+<div class="col-md-6">
+	<h3>Tambah Registrasi Client</h3>
+	<?php echo validation_errors();?>
+	<?php echo form_open('Client/tambahRegistrasi',array('class'=>'form-horizontal', 'role'=>'form','method'=>'POST'));?>
+		<div class="form-group">
+			<?php echo form_label('No Registrasi',"no_registrasi",array('class'=>"col-md-2 control-label"));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>"text", 'class'=>"form-control", 'id'=>"no_registrasi", 'name'=>"no_registrasi", 'value'=>set_value('no_registrasi')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('Nama Client','nama_client', array('class'=>"col-md-2 control-label"));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>"text", 'class'=>"form-control", 'id'=>"nama_client", 'name'=>"nama_client", 'value'=>set_value('nama_client')));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php echo form_label('Tanggal','tanggal',array('class'=>"col-md-2 control-label"));?>
+			<div class="col-md-5">
+				<?php echo form_input(array('type'=>"text", 'class'=>"form-control", 'id'=>"tanggal", 'name'=>"tanggal", 'value'=>set_value('tanggal')));?>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<?php echo form_submit("submit","SUBMIT",array('class'=>"form-control"));?>
+		</div>
+	<?php echo form_close();?>
+	<p><?php echo $pesan ;?></p>
+</div>
+<script type="text/javascript" src="<?php echo base_url();?>js/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('input#tanggal').datepicker({
+		dateFormat:"yy-mm-dd"
+	});
+});
+</script>
+</body>
+</html>

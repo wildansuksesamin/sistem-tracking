@@ -1,0 +1,73 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<select name="select_map1" id="select_map1" class="select form-control">
+				<?php 
+					for($x=0;$x<count($kendaraan);$x++){
+						echo "<option value='".$kendaraan[$x]['no_kendaraan']."'>".$kendaraan[$x]['no_kendaraan']."</option>";
+					}
+				?>
+			</select>
+			<input type="text" class="date_picker" id="date1">
+			<button class="view_trail btn btn-default" id="view_trail_1">Tampilkan Lintasan</button>
+			<button class="view_full btn btn-default">Maximized</button>
+			<button class="view_normal btn btn-default">Normal View</button>
+			<div id='map1'  class="normal"></div>
+		</div>
+		<div class="col-md-6">
+			<select id="select_map2" name="select_map2" class="select form-control">
+				<?php 
+					for($x=0;$x<count($kendaraan);$x++){
+						echo "<option value='".$kendaraan[$x]['no_kendaraan']."'>".$kendaraan[$x]['no_kendaraan']."</option>";
+					}
+				 ?>
+			</select>
+			<input type="text" class="date_picker" id="date2">
+			<button class="view_trail btn btn-default" id="view_trail_2">Tampilkan Lintasan</button>
+			<button class="view_full btn btn-default">Maximized</button>
+			<button class="view_normal btn btn-default">Normal View</button>
+			<div id='map2'  class="normal" ></div>
+		</div>
+		<div class="col-md-6">
+			<select id="select_map3" name="select_map3" class="select form-control">
+				<?php 
+					for($x=0;$x<count($kendaraan);$x++){
+						echo "<option value='".$kendaraan[$x]['no_kendaraan']."'>".$kendaraan[$x]['no_kendaraan']."</option>";
+					}
+				?>
+			</select>
+			<input type="text" class="date_picker" id="date3">
+			<button class="view_trail btn btn-default" id="view_trail_3">Tampilkan Lintasan</button>
+			<button class="view_full btn btn-default">Maximized</button>
+			<button class="view_normal btn btn-default">Normal View</button>
+			<div id='map3'  class="normal" ></div>
+		</div>
+		<div class="col-md-6">
+			<select id="select_map4" name="select_map4" class="select form-control">
+				<?php 
+					for($x=0;$x<count($kendaraan);$x++){
+						echo "<option value='".$kendaraan[$x]['no_kendaraan']."'>".$kendaraan[$x]['no_kendaraan']."</option>";
+					}
+				?>
+			</select>
+			<input type="text" class="date_picker" id="date4">
+			<button class="view_trail btn btn-default" id="view_trail_4">Tampilkan Lintasan</button>
+			<button class="view_full btn btn-default">Maximized</button>
+			<button class="view_normal btn btn-default">Normal View</button>
+			<div id='map4'  class="normal" ></div>
+		</div>
+
+	</div>
+	<script type="text/javascript">
+		var base_url="<?php echo site_url();?>";
+	</script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>/js/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/jquery-ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/trail.js"></script>
+</div>
+</body>
+</html>
+

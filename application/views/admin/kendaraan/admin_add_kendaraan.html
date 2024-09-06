@@ -1,0 +1,133 @@
+<div class="col-md-10">
+	<h3>Tambah Kendaraan</h3>
+	<div class="error">
+		<?php echo validation_errors();?>
+	</div>
+	<?php 
+		echo form_open(
+			'Kendaraan/addKendaraan',
+			array(
+				'class'=>'form-horizontal',
+				'method'=>'POST',
+				'role'=>'form'
+			)
+		);
+	?>
+	<div class="separator">
+		<div class="form-group">
+			<?php 
+				echo form_label(
+					'No Kendaraan',
+					'no_kendaraan',
+					array(
+						'class'=>'col-md-2 control-label'
+					)
+				);
+			?>
+			<div class="col-md-5">
+				<?php 
+					echo form_input(
+						array(
+							'name'=>'no_kendaraan',
+							'id'=>'no_kendaraan', 
+							'value'=>set_value('no_kendaraan'),
+							'class'=>'form-control'
+						)
+					);
+				?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php 
+				echo form_label(
+					'ID Kendaraan',
+					'id_kendaraan',
+					array(
+						'class'=>'col-md-2 control-label'
+					)
+				);
+			?>
+			<div class="col-md-5">
+				<?php 
+					echo form_input(
+						array(
+							'name'=>'id_kendaraan',
+							'id'=>'id_kendaraan', 
+							'value'=>set_value('id_kendaraan'),
+							'class'=>'form-control'
+						)
+					);
+				?>
+			</div>
+		</div>
+		<div class="form-group">
+			<?php 
+				echo form_label(
+					'Tipe Kendaraan',
+					'tipe_kendaraan',
+					array(
+						'class'=>'col-md-2 control-label'
+					)
+				);
+			?>
+			<div class="col-md-5">
+				<?php 
+					echo form_input(
+						array(
+							'name'=>'tipe_kendaraan',
+							'id'=>'tipe_kendaraan', 
+							'value'=>set_value('tipe_kendaraan'),
+							'class'=>'form-control'
+						)
+					);
+				?>
+			</div>
+		</div>
+	</div>
+	<div class="separator">
+		<p>Pilih Sub Perusahaan</p>
+		<?php 
+			echo form_label(
+				'Nama Perusahaan',
+				'id_perusahaan',
+				array(
+					'class'=>'col-md-2 control-label'
+				)
+			);
+		?>
+		<div class="col-md-5">
+			<?php 
+				$option=array();
+				for($f=0;$f<count($sub_perusahaan);$f++){
+					$option[$sub_perusahaan[$f]['id_perusahaan']] = $sub_perusahaan[$f]['nama_perusahaan'];
+				}
+				
+				echo form_dropdown(
+					'id_perusahaan',
+					$option,
+					$option[$sub_perusahaan[0]['id_perusahaan']],
+					array(
+						'class'=>'form-control'
+					)
+				);
+			?>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<?php 
+			echo form_submit(
+				'submit',
+				'SUBMIT',
+				array(
+					'class'=>'btn btn-primary'
+				)
+			);
+		?>
+	</div>
+	<?php 
+		echo form_close();
+		echo '<p>'.$pesan.'</p>';
+	?>
+</div>
+</body>
+</html>

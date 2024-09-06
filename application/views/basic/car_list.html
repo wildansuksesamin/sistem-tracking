@@ -1,0 +1,52 @@
+<div class='col-md-2 col-lg-2' >
+<div class='tabs btn-group' style='margin:5px;display:none;'>
+	<a href='car_list_tab1' class='my_tabs btn btn-primary'>Kendaraan</a>
+	<a href='car_list_tab2' class='my_tabs btn btn-success'>Cari</a>
+</div>
+<div id='car_list_tab1' class='tab_item checkbox' style='background-color:#D2D2D2;padding:10px;border-radius:5px;'>
+	<?php
+		foreach($n_perusahaan as $val_perusahaan){
+			echo "<a href='#'id='".$val_perusahaan['id_perusahaan']."' class='list_perusahaan navbar'>".$val_perusahaan['nama_perusahaan']."</a>";
+			echo "<ul class='list-unstyled'>";
+			foreach($n_car_data as $val_car_data){
+				if($val_car_data['id_perusahaan']===$val_perusahaan['id_perusahaan']){
+					if($f_view==='report'){
+						echo "<li class='item_list'>&nbsp&nbsp&nbsp
+								<label>
+									<input class='id_cb' type='checkbox' value='".$val_car_data['id']."'>
+									<small>".$val_car_data['no_kendaraan']."</small>
+								</label>
+							</li>";
+					}else if($f_view==='map'){
+						echo "<li class='item_list'>
+								<label>
+									<input class='id_cb' type='checkbox' value='".$val_car_data['id']."'>
+									<small>".$val_car_data['no_kendaraan']."</small>
+								</label>
+								<button id='".$val_car_data['lat']."/".$val_car_data['lgt']."' class='go_button btn btn-success'>
+									<span class='glyphicon glyphicon-arrow-right'></span>
+								</button>
+							</li>";
+					}
+				}
+			}
+			echo "</ul>";
+		}
+	?>
+</div>
+<div id='car_list_tab2' class='tab_item checkbox' style="display:none;background-color:#D2D2D2;padding:10px;border-radius:5px;">
+	<div class='input-group'>
+		<input type="text" name="search" id="search_input" class='form-control'>
+		<a href="#" class='input-group-addon' id='cari_car_list'><span class="glyphicon glyphicon-search"></span></a>
+	</div>
+	<div id='search_result'>
+	</div>
+</div>
+</div>
+
+<script>
+	var home = '<?php echo base_url();?>';
+	var site_url = '<?php echo site_url();?>';
+	var condition = '<?php echo $f_view ;?>';
+</script>
+<script src="<?php echo base_url();?>js/list_car.js"></script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<title>Login Form</title>
+<link href="../css/login.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+	<div id="form">
+		<p align="center"><b>TAMBAH USER</b></p>
+		<form action="add_user.php?action=add" method="POST" onSubmit="return(cekForm())">
+		
+			<table>
+				<tr><td><span>Nama Pengguna</span></td><td><input id="username" type="text" name="username" maxlength="20"></td></tr>
+				<tr><td colspan="2" align="right" style="height:14px;"><span id="user"></span></td></tr>
+				<tr><td><span>Password</span></td><td><input id="password" type="password" name="password" maxlength="20"></td></tr>
+				<tr><td colspan="2" align="right" style="height:14px;"><span id="pass"></span></td></tr>
+				<tr><td colspan="2">
+					<input type="SUBMIT" onClick="cekLogin()" value="Tambah User" id="button">
+					<input type="RESET" value="Clear" onClick="clear()" id="button">
+				</td></tr>
+			</table>
+		
+		</form>
+	</div>
+	
+</div>
+<script type="text/javascript" src="../js/login.js"></script>
+<body>
+</html>
